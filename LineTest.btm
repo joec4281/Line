@@ -12,10 +12,10 @@ endtext
 
 set theFile=test.txt
 
-Gosub Test1
-Gosub Test2
-Gosub Test3
-Gosub Test4
+Gosub Test1 & rem with optionbase not defined.
+Gosub Test2 & rem with optionbase=0 defined.
+Gosub Test3 & rem with optionbase=1 defined.
+Gosub Test4 & rem with optionbase=2 defined.
 
 type %thefile > clip:
 
@@ -23,13 +23,14 @@ set theFile=clip:
 
 echo Test using the contents of the Windows Clipboard.
 
-Gosub Test1
-Gosub Test2
-Gosub Test3
-Gosub Test4
+Gosub Test1 & rem with optionbase not defined. 
+Gosub Test2 & rem with optionbase=0 defined.
+Gosub Test3 & rem with optionbase=1 defined.
+Gosub Test4 & rem with optionbase=2 defined.
 
 ENDLOCAL
 quit
+
 :Test1
 if defined optionbase unset optionbase
 
