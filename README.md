@@ -61,9 +61,9 @@ Line 5
 **Line.exe** does **NOT** support;  
 * the line number in hexadecimal format
 * input from standard input if you specify **CON** as the filename
-* redirected input to @LINE
-* the TCC clipboards (CLIP0: - CLIP9:)
-* the TCC temporary files (TMP0: - TMP9:)
+* redirected input to **@LINE**
+* the TCC clipboards (**CLIP0: - CLIP9**:)
+* the TCC temporary files (**TMP0: - TMP9:**)
   
 Here's how I compile **line.cs** on my Windows 10 system;
 
