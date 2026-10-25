@@ -1,0 +1,87 @@
+@SETLOCAL
+@ECHO OFF
+if isdir r:\temp set temp=r:\temp
+
+text > test.txt
+Line 1
+Line 2
+Line 3
+Line 4
+Line 5
+endtext
+
+set theFile=test.txt
+
+Gosub Test1
+Gosub Test2
+Gosub Test3
+Gosub Test4
+
+type %thefile > clip:
+
+set theFile=clip:
+
+echo Test using the contents of the Windows Clipboard.
+
+Gosub Test1
+Gosub Test2
+Gosub Test3
+Gosub Test4
+
+ENDLOCAL
+quit
+:Test1
+if defined optionbase unset optionbase
+
+echo Running %_batchname with optionbase not defined.
+
+echo First line in %theFile using line.exe %theFile 0
+line.exe %theFile 0
+echo ^nLast line in %theFile using line.exe %theFile -0
+line.exe %theFile -0
+
+pause
+Return
+
+:Test2
+echo ^nRunning %_batchname with optionbase defined.
+set optionbase=0
+echo set optionbase=0
+
+echo First line in %theFile using line.exe %theFile 0
+line.exe %theFile 0
+echo ^nLast line in %theFile using line.exe %theFile -0
+line.exe %theFile -0
+
+pause
+Return
+
+:Test3
+echo ^nRunning %_batchname with optionbase defined.
+set optionbase=1
+echo set optionbase=1
+
+echo First line in %theFile using line.exe %theFile 0
+line.exe %theFile 0
+echo ^nFirst line in %theFile using line.exe %theFile 1
+line.exe %theFile 1
+echo ^nLast line in %theFile using line.exe %theFile -0
+line.exe %theFile -0
+
+pause
+Return
+
+:Test4
+echo ^nRunning %_batchname with optionbase defined.
+set optionbase=2
+echo set optionbase=2
+
+echo First line in %theFile using line.exe %theFile 0
+line.exe %theFile 0
+echo ^nFirst line in %theFile using line.exe %theFile 1
+line.exe %theFile 1
+echo ^nLast line in %theFile using line.exe %theFile -0
+line.exe %theFile -0
+
+pause
+Return
