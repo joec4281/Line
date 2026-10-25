@@ -35,7 +35,7 @@ E:\...\Line>which @LINE
 
 It is used the same as the internal **@LINE** function.  
   
-**NOTE:** The internal @LINE function does not support the -0 argument.
+**NOTE:** The internal **@LINE** function does not support the -0 argument.
 
 ```dos
 E:\...\Line>set optionbase=0
