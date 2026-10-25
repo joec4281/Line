@@ -29,11 +29,11 @@ I have created a User-Defined Function to replace the internal **@LINE** functio
 ```dos
 E:\...\Line>function line=`%@execstr[line.exe %1 %2]`
 
-E:\...\Line>which @line
-@line is a user-defined variable function (%@execstr[line.exe %1 %2])
+E:\...\Line>which @LINE
+@LINE is a user-defined variable function (%@execstr[line.exe %1 %2])
 ```
 
-It is used the same as the internal **@line** function.  
+It is used the same as the internal **@LINE** function.  
   
 **NOTE:** The internal @LINE function does not support the -0 argument.
 
