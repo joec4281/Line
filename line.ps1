@@ -7,7 +7,8 @@ param(
 )
 
 if ($args.Count -gt 0 -or $null -eq $Source -or $null -eq $NumberText) {
-    [Console]::Error.WriteLine('Usage: LINES <file|CLIP:> <line-number>')
+#    [Console]::Error.WriteLine('Usage: LINES <file|CLIP:> <line-number>')
+		Write-Error "Usage: LINES <file|CLIP:> <line-number>" -ErrorAction Continue 
     exit 1
 }
 
@@ -21,7 +22,8 @@ if ($null -ne $optionBaseValue) {
         -not [int]::TryParse($optionBaseValue, [ref] $parsedOptionBase) -or
         ($parsedOptionBase -ne 0 -and $parsedOptionBase -ne 1)
     ) {
-        [Console]::Error.WriteLine('OptionBase must be 0 or 1.')
+#        [Console]::Error.WriteLine('OptionBase must be 0 or 1.')
+				Write-Error "OptionBase must be 0 or 1." -ErrorAction Continue
         exit 1
     }
 
@@ -41,9 +43,10 @@ if (
     -not [long]::TryParse($magnitudeText, [ref] $requestedNumber) -or
     $requestedNumber -lt 0
 ) {
-    [Console]::Error.WriteLine(
-        'The line number must be a non-negative integer, optionally preceded by ''-''.'
-    )
+#    [Console]::Error.WriteLine(
+#        'The line number must be a non-negative integer, optionally preceded by ''-''.'
+#    )
+			Write-Error "The line number must be a non-negative integer, optionally preceded by ''-''." -ErrorAction Continue 
     exit 1
 }
 
@@ -54,7 +57,8 @@ try {
         $text = [TakeCommand.PowerShellHost]::InvokeCommand('type clip:')
 
         if ($null -eq $text) {
-            [Console]::Error.WriteLine('The TCC callback returned no text.')
+#            [Console]::Error.WriteLine('The TCC callback returned no text.')
+						Write-Error "The TCC callback returned no text." -ErrorAction Continue 
             exit 1
         }
 
@@ -101,6 +105,7 @@ try {
     exit 0
 }
 catch {
-    [Console]::Error.WriteLine($_.Exception.Message)
+#    [Console]::Error.WriteLine($_.Exception.Message)
+		Write-Error "$_.Exception.Message" -ErrorAction Continue 
     exit 1
 }
