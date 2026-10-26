@@ -77,3 +77,9 @@ Copyright (C) Microsoft Corporation. All rights reserved.
 ```
   
 Review the contents of **LineTest.btm** for a demonstration on how to use **Line.exe**
+  
+---
+I have created **Line.ps1**,    
+which does the same thing as **Line.cs**  
+  
+Review the contents of **LineTestPS1.btm** for a demonstration on how to use **Line.ps1** from Take Command Console (TCC).  
